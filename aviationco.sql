@@ -62,7 +62,8 @@ CREATE TABLE IF NOT EXISTS `charter` (
   `CUS_CODE` int(6) DEFAULT NULL,
   PRIMARY KEY (`CHAR_TRIP`),
   KEY `AC_NUMBER` (`AC_NUMBER`),
-  KEY `CUS_CODE` (`CUS_CODE`)
+  KEY `CUS_CODE` (`CUS_CODE`),
+  KEY `CHAR_DESTINATION` (`CHAR_DESTINATION`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -164,8 +165,8 @@ INSERT INTO `customer` (`CUS_CODE`, `CUS_LNAME`, `CUS_FNAME`, `CUS_INITIAL`, `CU
 (10016, 'Brown', 'James', 'G', '615', '297-1228', 0),
 (10017, 'Williams', 'George', '', '615', '290-2556', 0),
 (10018, 'Farriss', 'Anne', 'G', '713', '382-7185', 0),
-(10019, 'Smith', 'Olette', 'K', '615', '297-3809', 453.98);
-
+(10019, 'Smith', 'Olette', 'K', '615', '297-3809', 453.98),
+(10020, 'Steward', 'Joshua', 'A', '805', '209-5120', 0);
 -- --------------------------------------------------------
 
 --
@@ -325,6 +326,39 @@ INSERT INTO `rating` (`RTG_CODE`, `RTG_NAME`) VALUES
 --
 -- Constraints for table `aircraft`
 --
+
+CREATE TABLE IF NOT EXISTS `joshuasteward`(
+	`CUS_CODE` int(6) DEFAULT NULL,
+	KEY `CUS_CODE` (`CUS_CODE`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `joshuasteward`(select CUS_CODE from customer where CUS_LNAME='Steward');
+
+
+CREATE TABLE IF NOT EXISTS `airport`(
+	`AIRPORT_CODE` varchar(3) NOT NULL DEFAULT '0',
+	`AIRPORT_STATE` varchar(20) DEFAULT NULL,
+    `PORT_LONGITUDE` float DEFAULT '0.0',
+    `PORT_LATITUDE` float DEFAULT '0.0',
+    `PORT_CITY` varchar(15) DEFAULT '',
+    `PORT_COUNTRY` varchar(20) DEFAULT '',
+	PRIMARY KEY (`AIRPORT_CODE`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+INSERT INTO `airport`(`AIRPORT_CODE`, `AIRPORT_STATE`, `PORT_LONGITUDE`, `PORT_LATITUDE`, `PORT_CITY`, `PORT_COUNTRY`) VALUES
+('ATL','Georgia', 101.9421, 102.2013, 'Atlanta', 'USA'),
+('BNA','Tennessee', 90.9302, 10.3910, 'Nashville', 'USA'),
+('GNV', 'Florida', 120.1033, 93.3019, 'Gainsville', 'USA'),
+('STL', 'Missouri', 170.9081, 179.9101, 'St. Louis', 'USA'),
+('TYS', 'Tennessee', 20.2012, 1.3053, 'Knoxville', 'USA'),
+('MOB', 'Alabama', 97.1013, 109.1039, 'Mobile', 'USA'),
+('MQY', 'Tennessee', 21.2012, 1.2039, 'Smyrna', 'USA');
+
+ALTER TABLE `joshuasteward`
+	ADD CONSTRAINT `cus_code_constraint` FOREIGN KEY (`CUS_CODE`) REFERENCES `customer` (`CUS_CODE`);
+
 ALTER TABLE `aircraft`
   ADD CONSTRAINT `aircraft_ibfk_1` FOREIGN KEY (`MOD_CODE`) REFERENCES `model` (`MOD_CODE`);
 
@@ -333,7 +367,8 @@ ALTER TABLE `aircraft`
 --
 ALTER TABLE `charter`
   ADD CONSTRAINT `charter_ibfk_1` FOREIGN KEY (`AC_NUMBER`) REFERENCES `aircraft` (`AC_NUMBER`),
-  ADD CONSTRAINT `charter_ibfk_2` FOREIGN KEY (`CUS_CODE`) REFERENCES `customer` (`CUS_CODE`);
+  ADD CONSTRAINT `charter_ibfk_2` FOREIGN KEY (`CUS_CODE`) REFERENCES `customer` (`CUS_CODE`),
+  ADD CONSTRAINT `air_dest` FOREIGN KEY (`CHAR_DESTINATION`) REFERENCES `airport` (`AIRPORT_CODE`);
 
 --
 -- Constraints for table `crew`
