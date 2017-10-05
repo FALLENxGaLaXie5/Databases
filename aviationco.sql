@@ -133,7 +133,6 @@ INSERT INTO `crew` (`CHAR_TRIP`, `EMP_NUM`, `CREW_JOB`) VALUES
 (10017, 101, 'Pilot'),
 (10018, 104, 'Copilot'),
 (10018, 105, 'Pilot');
-
 -- --------------------------------------------------------
 
 --
@@ -242,6 +241,7 @@ INSERT INTO `employee` (`EMP_NUM`, `EMP_TITLE`, `EMP_LNAME`, `EMP_FNAME`, `EMP_I
 (109, 'Ms.', 'Travis', 'Elizabeth', 'K', '1961-06-18 00:00:00', '1991-04-14 00:00:00'),
 (110, 'Mrs.', 'Genkazi', 'Leighla', 'W', '1970-05-19 00:00:00', '1992-12-01 00:00:00'),
 (818, 'Mr', 'Anderson', 'Richard', 'P', '1994-03-06 00:00:00', '2014-10-26 00:00:00');
+101, 104, 105, 106, 108, 109
 
 -- --------------------------------------------------------
 
@@ -294,7 +294,6 @@ INSERT INTO `pilot` (`EMP_NUM`, `PIL_LICENSE`, `PIL_RATINGS`, `PIL_MED_TYPE`, `P
 (105, 'COM', 'SEL/MEL/Instr/CFI', '2', '2013-02-25 00:00:00', '2014-02-12 00:00:00'),
 (106, 'COM', 'SEL/MEL/Instr', '2', '2013-04-02 00:00:00', '2014-12-24 00:00:00'),
 (109, 'COM', 'SEL/MEL/SES/Instr/CFII', '1', '2013-04-14 00:00:00', '2014-04-21 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -368,6 +367,7 @@ ALTER TABLE `aircraft`
 ALTER TABLE `charter`
   ADD CONSTRAINT `charter_ibfk_1` FOREIGN KEY (`AC_NUMBER`) REFERENCES `aircraft` (`AC_NUMBER`),
   ADD CONSTRAINT `charter_ibfk_2` FOREIGN KEY (`CUS_CODE`) REFERENCES `customer` (`CUS_CODE`),
+  ADD CONSTRAINT `air_dest` FOREIGN KEY (`CHAR_DESTINATION`) REFERENCES `airport` (`AIRPORT_CODE`);
   ADD CONSTRAINT `air_dest` FOREIGN KEY (`CHAR_DESTINATION`) REFERENCES `airport` (`AIRPORT_CODE`);
 
 --
