@@ -368,7 +368,6 @@ ALTER TABLE `charter`
   ADD CONSTRAINT `charter_ibfk_1` FOREIGN KEY (`AC_NUMBER`) REFERENCES `aircraft` (`AC_NUMBER`),
   ADD CONSTRAINT `charter_ibfk_2` FOREIGN KEY (`CUS_CODE`) REFERENCES `customer` (`CUS_CODE`),
   ADD CONSTRAINT `air_dest` FOREIGN KEY (`CHAR_DESTINATION`) REFERENCES `airport` (`AIRPORT_CODE`);
-  ADD CONSTRAINT `air_dest` FOREIGN KEY (`CHAR_DESTINATION`) REFERENCES `airport` (`AIRPORT_CODE`);
 
 --
 -- Constraints for table `crew`
