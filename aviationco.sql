@@ -69,7 +69,8 @@ CREATE TABLE IF NOT EXISTS `charter` (
 --
 -- Dumping data for table `charter`
 --
-
+#10001, 10002, 10004, 10005, 10006, 10008, 10009, 10010, 10012, 10013, 10014, 10017
+#5.1 + 1.6 + 2.9 + 5.7, 2.6 + 4.1 + 6.6 + 6.2 + 4.8 + 3.9 + 6.1 + 3.1
 INSERT INTO `charter` (`CHAR_TRIP`, `CHAR_DATE`, `AC_NUMBER`, `CHAR_DESTINATION`, `CHAR_DISTANCE`, `CHAR_HOURS_FLOWN`, `CHAR_HOURS_WAIT`, `CHAR_FUEL_GALLONS`, `CHAR_OIL_QTS`, `CUS_CODE`) VALUES
 (10001, '2014-02-05 00:00:00', '2289L', 'ATL', 936, 5.1, 2.2, 354.1, 1, 10011),
 (10002, '2014-02-05 00:00:00', '2778V', 'BNA', 320, 1.6, 0, 72.6, 0, 10016),
@@ -107,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `crew` (
 --
 -- Dumping data for table `crew`
 --
-
 INSERT INTO `crew` (`CHAR_TRIP`, `EMP_NUM`, `CREW_JOB`) VALUES
 (10001, 104, 'Pilot'),
 (10002, 101, 'Pilot'),
@@ -241,7 +241,6 @@ INSERT INTO `employee` (`EMP_NUM`, `EMP_TITLE`, `EMP_LNAME`, `EMP_FNAME`, `EMP_I
 (109, 'Ms.', 'Travis', 'Elizabeth', 'K', '1961-06-18 00:00:00', '1991-04-14 00:00:00'),
 (110, 'Mrs.', 'Genkazi', 'Leighla', 'W', '1970-05-19 00:00:00', '1992-12-01 00:00:00'),
 (818, 'Mr', 'Anderson', 'Richard', 'P', '1994-03-06 00:00:00', '2014-10-26 00:00:00');
-101, 104, 105, 106, 108, 109
 
 -- --------------------------------------------------------
 
