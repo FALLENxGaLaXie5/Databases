@@ -23,6 +23,8 @@ USE AVIATIONCO;
 -- Table structure for table `aircraft`
 --
 
+
+
 CREATE TABLE IF NOT EXISTS `aircraft` (
   `AC_NUMBER` varchar(5) NOT NULL DEFAULT '',
   `MOD_CODE` varchar(10) DEFAULT NULL,
