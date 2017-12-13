@@ -13,3 +13,5 @@ INSERT INTO `charter` (`CHAR_TRIP`,
 (10024, '2017-09-22 00:00:00', '1484P', 'TYS', 644, 4, 5.2, 141, 1, 10020);
 
 select QueryAuthor() as 'Query Author';
+
+insert into `charter` values (10024, '2017-09-22 00:00:00', '1484P', 'TYS', 644, 4, 5.2, 141, 1, 10020);

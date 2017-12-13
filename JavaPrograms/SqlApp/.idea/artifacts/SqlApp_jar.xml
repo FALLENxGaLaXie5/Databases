@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SqlApp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SqlApp_jar</output-path>
+    <root id="archive" name="SqlApp.jar">
+      <element id="module-output" name="SqlApp" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Lib/mysql-connector-java-5.1.45-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

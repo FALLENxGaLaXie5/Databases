@@ -1,4 +1,4 @@
-use aviationco;
+use airsupply;
 drop function if exists QueryAuthor;
 delimiter $$
 
